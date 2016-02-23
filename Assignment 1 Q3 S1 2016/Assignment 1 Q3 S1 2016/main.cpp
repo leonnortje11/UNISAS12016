@@ -6,18 +6,15 @@
 //
 
 #include <fstream>
-//For file I/O
 #include <iostream>
-//For cout
 #include <cstdlib>
-//For exit
 #include <iomanip>
 //Required to setw, column width
 
 using namespace std;
 
-void add_plus_plus(ifstream& in_stream, ofstream& out_stream);
-//Stream parameters must be call-by-reference and replace C with C++
+void marks_total(ifstream& in_stream, ofstream& out_stream);
+//Update marks average and year mark
 
 
 int main()
@@ -26,9 +23,8 @@ int main()
     ifstream fin;
     ofstream fout;
     
-    cout << "Befin editing files.\n";
     
-    fin.open("cad.dat");
+    fin.open("/Users/leon.nortje/Dropbox/UNISA/Sourcefiles/marks.dat");
     if (fin.fail())
     {
         cout << "Input file open failed.\n";
@@ -36,7 +32,7 @@ int main()
     }
     //Check on open file for error.
     
-    fout.open("cplusad.dat");
+    fout.open("/Users/leon.nortje/Dropbox/UNISA/Sourcefiles/yearmark.dat");
     if (fout.fail())
     {
         cout << "Input file open failed.\n";
@@ -45,8 +41,8 @@ int main()
     //Check on writing to file for error.
     
     
-    add_plus_plus(fin, fout);
-    //Call the function to fix the file content
+    marks_total(fin, fout);
+    //Call the function to update content
     
     fin.close();
     fout.close();
@@ -56,20 +52,12 @@ int main()
     return 0;
 }
 
-void add_plus_plus(ifstream& in_stream, ofstream& out_stream)
-//Replace C with C++
+void marks_total(ifstream& in_stream, ofstream& out_stream)
+//Update average and yearmark
 {
     char next;
-    
-    in_stream.get(next);
-    
-    while (! in_stream.eof())
     {
-        if (next == 'C')
-            out_stream << "C++";
-        else
-            out_stream << next;
-        
         in_stream.get(next);
-    }
+        out_stream.put(next);
+    } while (! in_stream.eof());
 }
