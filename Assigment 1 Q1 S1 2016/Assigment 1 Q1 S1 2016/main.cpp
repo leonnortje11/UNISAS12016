@@ -1,11 +1,8 @@
-//
-//  main.cpp
-//  Assigment 1 Q1 S1 2016
-//
-//  Created by Leon Nortje on 2016/02/20.
-//  Copyright © 2016 Leon Nortje. All rights reserved.
-//  Assignment 1 Question 1
-//  calculate total discount
+//  File Name: main.cpp
+//  Created by Leon Nortje
+//  Email Address: nortje.leon@gmail.com
+//  Copyright (c) 2014 Leon Nortje. All rights reserved.
+//  Description: calculate total discount based on a specific membership status and or Thursday selection discoint
 
 #include <iostream>
 using namespace std;
