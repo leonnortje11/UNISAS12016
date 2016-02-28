@@ -1,9 +1,6 @@
-//  main.cpp
-//  Output
-//
-//  Created by Leon Nortje on 2016/02/21.
+
 //  Copyright © 2016 Leon Nortje. All rights reserved.
-//
+//  Change characteristics of input file
 
 #include <fstream>
 #include <iostream>
@@ -19,12 +16,19 @@ void make_neat(ifstream& messy_file, ofstream& neat_file);
 int main()
 {
     
+    char in_file_name[16], out_file_name[16];
+    
     ifstream fin;
     ofstream fout;
     
+    cout << "Enter the input file name (max 15 characters):\n";
+    cin >> in_file_name;
+    
+    cout << "Enter the output file name (Max 15 characters):\n";
+    cin >> out_file_name;
     
     
-    fin.open("arrest.dat");
+    fin.open("/Users/leon.nortje/Dropbox/UNISA/Sourcefiles/input.dat");
     if (fin.fail())
     {
         cout << "Input file open failed.\n";
@@ -32,7 +36,7 @@ int main()
     }
     //Check on open file for error.
     
-    fout.open("newarrest.dat");
+    fout.open("/Users/leon.nortje/Dropbox/UNISA/Sourcefiles/arrest.dat");
     if (fout.fail())
     {
         cout << "Input file open failed.\n";
@@ -42,7 +46,7 @@ int main()
     
     
     make_neat(fin, fout);
-    //Call the function to fix the file content
+    //Call the function to change the file content
     
     fin.close();
     fout.close();
@@ -51,15 +55,43 @@ int main()
 }
 
 void make_neat(ifstream& messy_file, ofstream& neat_file)
-//Fix content to new file
+//Change the file content
 {
     
     char next;
-    while (messy_file >> next)
+    while (messy_file.get(next))
     {
-        //cout << setw(field_width) << next << endl;
-        //Write content to screen
-        neat_file << next;
-        //Write content to the new file.
+        
+        if (next == '0')
+            next = '@';
+        if  (next== '1')
+            next = '!';
+        if (next == '2')
+            next = ')';
+        if (next == '3')
+            next = 'E';
+        if (next == '4')
+            next = '<';
+        if (next == '5')
+            next = '&';
+        if (next == '6')
+            next = '$';
+        if (next == '7')
+            next = '>';
+        if (next == '8')
+            next = '*';
+        if (next == '9')
+            next = '?';
+        if (next == 'e')
+            next = 'h';
+        if (next == ' ')
+            next = '-';
+        if (isupper(next))
+            next = ' ';
+            neat_file.put(next);
+        
+        cout << next;
+        //Display info on screen.
+        
     }
 }
