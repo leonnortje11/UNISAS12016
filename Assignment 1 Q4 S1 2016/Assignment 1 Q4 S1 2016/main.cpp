@@ -28,7 +28,7 @@ int main()
     cin >> out_file_name;
     
     
-    fin.open("/Users/leon.nortje/Dropbox/UNISA/Sourcefiles/input.dat");
+    fin.open(in_file_name);
     if (fin.fail())
     {
         cout << "Input file open failed.\n";
@@ -36,7 +36,7 @@ int main()
     }
     //Check on open file for error.
     
-    fout.open("/Users/leon.nortje/Dropbox/UNISA/Sourcefiles/arrest.dat");
+    fout.open(out_file_name);
     if (fout.fail())
     {
         cout << "Input file open failed.\n";
